@@ -26,7 +26,7 @@ images:
 / [Português](https://docs.google.com/document/d/1pDo40DXcpXjzqAUfhFfup50-IQ2Qct-mhLnmRpjFZWM/edit).
 / [Markdown for translating](https://raw.githubusercontent.com/berthubert/bnt162b2/master/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine.md)
 
-ようこそ!  この記事ではBioNTechとファイザー(Pfizer)のCOCID-19(SARS-CoV-2)向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
+ようこそ!  この記事ではBioNTechとファイザー(Pfizer)のSARS-CoV-2(訳注: いわゆるCOCID-19)向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
 
 > *I want to thank the large cast of people who spent time previewing this
 > article for legibility and correctness. All mistakes remain mine though,
@@ -120,124 +120,97 @@ mRNAワクチンは、「免疫系を教育する」という同じ目的を、�
 
 ソースコード！
 ----------------
-[Let's start at the very beginning, a very good place
-to start](https://youtu.be/jp0opnxQ4rY?t=8). 
-WHOのドキュメントには役立つ図があります:
+[ドレミの歌のように](https://youtu.be/jp0opnxQ4rY?t=8)、最初から見ていきましょう。
+WHOのドキュメントには便利な図があります:
 
 <center>
 {{< figure src="https://berthub.eu/articles/vaccine-toc.png"  >}}
 </center>
 
-This is a sort of table of contents. We'll start with the 'cap', actually
-depicted as a little hat.
+これは一種の目次のようなものです。
+小さな帽子のように描かれている「cap」から見ていきましょう。
 
-Much like you can't just plonk opcodes in a file on a computer and run it,
-the biological operating system requires headers, has linkers and things
-like calling conventions.
+計算機上のファイルにいきなりオペコードを書いて実行することが出来ないのと同じように、生物学的オペレーティングシステムにはヘッダーが必要であり、リンカーや呼び出し規約のようなものが存在しています。
 
-The code of the vaccine starts with the following two nucleotides:
+ワクチンのコードは以下の２つのヌクレオチドから始まります。
 
 ```
 GA
 ```
 
-This can be compared very much to every [DOS and Windows executable starting
-with MZ](https://en.wikipedia.org/wiki/DOS_MZ_executable), or UNIX scripts starting with
-[`#!`](https://en.wikipedia.org/wiki/Shebang_(Unix)). In both life and
-operating systems, these two characters are not executed in any way. But
-they have to be there because otherwise nothing happens.
+これは [DOS や Windows の実行ファイルが MZ から始まり](https://en.wikipedia.org/wiki/DOS_MZ_executable)、UNIXのスクリプトが [`#!`](https://en.wikipedia.org/wiki/Shebang_(Unix)) から始まるのに対応しています。
+生命の場合でもオペレーティングシステムの場合でも、これらの二文字はいかなる意味でも実行されることはありません。
+しかし、それがないと何も起こらないため、そこに存在しなくてはならないのです。
 
-The mRNA 'cap' [has a number of
-functions](https://en.wikipedia.org/wiki/Five-prime_cap#Function). For one, it marks code as coming
-from the nucleus. In our case of course it doesn't, our code comes from a
-vaccination. But we don't need to tell the cell that. The cap makes our code
-look legit, which protects it from destruction.
+mRNAのcap[は多くの機能を持っています](https://en.wikipedia.org/wiki/Five-prime_cap#Function)。
+第一に細胞核から来たコードをマーキングします。
+今回の場合、コードは細胞核から来たものではなく、ワクチン接種によってもたらされたものです。
+しかし、細胞にそのことを伝える必要はありません。
+capの存在は、ワクチンのコードを正当なものに見せかけ、コードが破壊されることを防ぎます。
 
-The initial two `GA` nucleotides are also chemically slightly different from
-the rest of the RNA.  In this sense, the `GA` has some out-of-band
-signaling on it.
+また、最初の２つの `GA` ヌクレオチドは残りのRNAとは化学的に微妙に異ります。
+その意味でこの `GA` はOOB(out-of-band)信号を伝達していると言えます。
 
-The "five-prime untranslated region"
-------------------------------------
-Some lingo here. RNA molecules can only be read in one direction.
-Confusingly, the part where the reading begins is called the 5' or
-'five-prime'. The reading stops at the 3' or three-prime end.
+5' 非翻訳領域
+------------
+いくつか専門用語を使わせて下さい。
+RNA分子は一方向にしか読み進むことが出来ません。
+混乱することに、読み始める位置は 5' (ファイブ・プライム) と呼ばれています。
+そして、読み込みは 3' (スリー・プライム) 末端で終了します。
 
-Life consists of proteins (or things made by proteins). And these proteins
-are described in RNA. When RNA gets converted into proteins, this is called
-translation.
+生命はタンパク質（やタンパク質によって作られる物質）によって構成されており、それらタンパク質はRNAによって記述されています。
+RNAがタンパク質に変換される過程は翻訳と呼ばれます。
 
-Here we have the 5' untranslated region ('UTR'), so this bit does not end up
-in the protein:
+以下がワクチンの 5' 非翻訳領域（five prime untranslated region：5' UTR）で、従ってこれはタンパク質には翻訳されません:
 
 ```
 GAAΨAAACΨAGΨAΨΨCΨΨCΨGGΨCCCCACAGACΨCAGAGAGAACCCGCCACC
 ```
 
-Here we encounter our first surprise.  The normal RNA characters are A, C, G
-and U.  U is also known as 'T' in DNA.  But here we find a Ψ, what is going
-on?
+ここで最初に驚くのは、通常のRNAは A, C, G, U (U は DNA では「T」として知られています) からなるのに対して、 ここには Ψ が含まれています。
+これは一体どうしたことでしょうか？
 
-This is one of the exceptionally clever bits about the vaccine. Our body
-runs a powerful antivirus system ("the original one"). For this reason,
-cells are extremely unenthusiastic about foreign RNA and try very hard to
-destroy it before it does anything.
+これはこのワクチンの超絶巧妙な点です。
+私達の肉体はウィルスに対抗する強力なシステム（"the original one"）を持っているため、細胞は外部から来たRNAを非常に嫌っていて、それが何かをする前に全力で破壊しようとします。
 
-This is somewhat of a problem for our vaccine - it needs to sneak past our
-immune system. Over many years of experimentation, it was found that if the
-U in RNA is replaced by a slightly modified molecule, our immune system
-loses interest. For real. 
+これは我々のワクチンにとってやや問題なので、免疫システムをこっそり越える必要があります。
+何年にも渡る実験の結果、RNAにおけるUを微妙に変化させることで、免疫システムの目を逸らすことが分かっていました（マジで！）。
 
-So in the BioNTech/Pfizer vaccine, every U has been replaced by
-1-methyl-3'-pseudouridylyl, denoted by Ψ.  The really clever bit is that
-although this replacement Ψ placates (calms) our immune system, it is
-accepted as a normal U by relevant parts of the cell.
+そこで、BioNTechとファイザーのワクチンでは、すべての U を ψ で表される 1-メチル-3'-プソイドウリジリル (1-methyl-3'-pseudouridylyl) に置き換えています。
+非常に巧妙なのは、置き換えられた ψ は免疫系を鎮める一方で、細胞の関連する部分においては通常の U として受け入れられる点です。
 
-In computer security we also know this trick - it sometimes is possible to
-transmit a slightly corrupted version of a message that confuses firewalls and
-security solutions, but that is still accepted by the backend servers -
-which can then get hacked.
+計算機セキュリティーの分野にも同じトリックがあります。ファイアーウォールやセキュリティソルトウェアを混乱させる一方で、バックエンドのサーバーには受けいられるように微妙に壊したメッセージを送信することで、サーバーをハックすることができることがあるのです。
 
-We are now reaping the benefits of fundamental scientific research performed
-in the past. The
-[discoverers](https://twitter.com/PennMedicine/status/1341766354232365059)
-of this Ψ technique had to fight to get
-[their](https://www.statnews.com/2020/11/10/the-story-of-mrna-how-a-once-dismissed-idea-became-a-leading-technology-in-the-covid-vaccine-race/)
-work funded and then accepted. We should all be very grateful, and I am sure
-the [Nobel prizes will arrive in due
-course](https://twitter.com/PowerDNS_Bert/status/1329861047168225281).
+これは過去に行った基礎科学研究の成果の収穫です。
+Ψを用いるテクニックの[発見者たち](https://twitter.com/PennMedicine/status/1341766354232365059)は、[研究](https://www.statnews.com/2020/11/10/the-story-of-mrna-how-a-once-dismissed-idea-became-a-leading-technology-in-the-covid-vaccine-race/)の資金を得て受け入れてもらうために闘わなくてはなりませんでした。
+私達はみなこのことに感謝すべきですし、[いずれノーベル賞が授与されるであろう](https://twitter.com/PowerDNS_Bert/status/1329861047168225281)と確信しています。
 
-> Many people have asked, could viruses also use the Ψ technique to beat our
-> immune systems?  In short, this is extremely unlikely.  Life simply does
-> not have the machinery to build 1-methyl-3'-pseudouridylyl nucleotides. 
-> Viruses rely on the machinery of life to reproduce themselves, and this
-> facility is simply not there.  The mRNA vaccines quickly degrade in the
-> human body, and there is no possibility of the Ψ-modified RNA
-> replicating with the Ψ still in there. "[No, Really, mRNA Vaccines Are Not Going To Affect Your
-> DNA](https://www.deplatformdisease.com/blog/no-really-mrna-vaccines-are-not-going-to-affect-your-dna)"
-> is also a good read.
+> ウイルスも ψ テクニックを使って我々の免疫システムを出し抜くことができるのかと、多くの人に聞かれました。
+> 簡潔に答えると、その可能性は極めて低いです。
+> というのも、生命は 1-メチル-3'-プソイドウリジリル ヌクレオチドを合成する機構を持っていないためです。
+> ウイルスは生命の機構に依存して自己複製を用いますが、必要な機構がそこには存在しないのです。
+> mRNAワクチンは人間の体内で急速に劣化するので、Ψに置き換えられたRNAがψが残った状態で複製される可能性はありません。
+> "[No, Really, mRNA Vaccines Are Not Going To Affect Your DNA](https://www.deplatformdisease.com/blog/no-really-mrna-vaccines-are-not-going-to-affect-your-dna)" (「mRNAワクチンはあなたのDNAには影響を与えません」)も参考になる記事です。
 
-Ok, back to the 5' UTR. What do these 51 characters do? As everything in
-nature, almost nothing has one clear function. 
+5' 非翻訳領域 に話を戻すと、この51文字は一体何をするのでしょうか？
+自然に存在するものは何でもそうであるように、ほとんど何も単一の明確な機能を持っているわけではありません。
 
-When our cells need to *translate* RNA into proteins, this is done using a
-machine called the ribosome.  The ribosome is like a 3D printer for
-proteins.  It ingests a strand of RNA and based on that it emits a string of
-amino acids, which then fold into a protein.
+私達の細胞がRNAをタンパク質に*翻訳*する必要があるとき、リボソーム（ribosome）という機械を用いて行います。
+リボソームはタンパク質の3Dプリンターのようなものです。
+それはRNA鎖を摂取し、それに基づいてアミノ酸のストリングを放出し、それはタンパク質に折り畳まれます。
+リボソームはRNA鎖を取り込み、それに基づいてアミノ酸の鎖を作り出し、タンパク質へと折り畳みます。
 
 <center>
 <video controls width="90%" loop>
-<source src="/articles/protein-short.mp4" type="video/mp4">
+<source src="https://berthub.eu/articles/protein-short.mp4" type="video/mp4">
 </video>
 <br/>
-Source: [Wikipedia user Bensaccount](https://commons.wikimedia.org/wiki/File:Protein_translation.gif)
+出典: [Wikipedia利用者Bensaccount](https://commons.wikimedia.org/wiki/File:Protein_translation.gif)
 </center>
 
-
-This is what we see happening above.  The black ribbon at the bottom is RNA. 
-The ribbon appearing in the green bit is the protein being formed. The
-things flying in and out are amino acids plus adaptors to make them fit on
-RNA.
+上図で起こっているのがこの過程です。
+下部にある黒いリボン状のものがRNAであり、緑の部分に現れてくるリボン状のものが形成されるタンパク質です。
+飛んできて飛び去っていくのが、アミノ酸およびRNAにフィットさせるためのアダプターです。
 
 This ribosome needs to physically sit on the RNA strand for it to get to
 work.  Once seated, it can start forming proteins based on further RNA it
@@ -477,8 +450,8 @@ A's.
 I suspect that what we see here is the result of further proprietary
 optimization to enhance protein expression even more.
 
-Summarising
------------
+まとめ
+-----
 With this, we now know the exact mRNA contents of the BNT162b2 vaccine, and
 for most parts we understand why they are there: 
 
@@ -496,8 +469,8 @@ The codon optimization adds a lot of G and C to the mRNA. Meanwhile, using Ψ
 the mRNA stays around long enough so we can actually help train the immune
 system.
 
-Further reading/viewing
------------------------
+さらなる読み物など
+---------------
 In 2017 I held a two hour presentation on DNA, which you can [view
 here](https://berthub.eu/dna). Like this page it is aimed at computer
 people.
