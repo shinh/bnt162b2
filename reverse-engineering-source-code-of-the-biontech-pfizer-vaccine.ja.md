@@ -28,11 +28,6 @@ images:
 
 ようこそ!  この記事ではBioNTechとファイザー(Pfizer)のSARS-CoV-2(訳注: いわゆるCOCID-19)向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
 
-> *I want to thank the large cast of people who spent time previewing this
-> article for legibility and correctness. All mistakes remain mine though,
-> but I would love to hear about them quickly at bert@hubertnet.nl or
-> [@PowerDNS_Bert](https://twitter.com/PowerDNS_Bert)*
-
 > *この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。
 > すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは
 > [@PowerDNS_Bert](https://twitter.com/PowerDNS_Bert) までご連絡いただければ幸いです*
