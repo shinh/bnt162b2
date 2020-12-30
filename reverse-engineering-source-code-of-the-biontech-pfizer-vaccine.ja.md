@@ -51,7 +51,7 @@ Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083).
 (このワクチンは[BNT162b2](https://en.wikipedia.org/wiki/Tozinameran) もしくは Tozinameran [also known as Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083) としても知られています。)
 
 <center>
-{{< figure src="/articles/bnt162b2.png" caption="BNT162b2 mRNAワクチンの最初の500文字。出典: [World Health Organization](https://mednet-communities.net/inn/db/media/docs/11889.doc)">}}
+{{< figure src="https://berthub.eu/articles/bnt162b2.png" caption="BNT162b2 mRNAワクチンの最初の500文字。出典: [World Health Organization](https://mednet-communities.net/inn/db/media/docs/11889.doc)">}}
 </center>
 
 BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。
@@ -59,7 +59,7 @@ BNT162b mRNAワクチンの中核となるのは、このデジタルなコー�
 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
 
 <center>
-{{< figure src="/articles/bioxp-3200.jpg" caption="[Codex DNA](https://codexdna.com/products/bioxp-system/) 社のDNAプリンタ BioXp 3200" >}}
+{{< figure src="https://berthub.eu/articles/bioxp-3200.jpg" caption="[Codex DNA](https://codexdna.com/products/bioxp-system/) 社のDNAプリンタ BioXp 3200" >}}
 </center>
 
 DNAプリンタの出力は少量のDNAで、その後に多くの生物的・化学的な処理を経ることでワクチンのアンプルに収まっているRNAになります（RNAについては後で詳しく説明します）。
@@ -90,7 +90,6 @@ DNAはデジタルなコードです。
 言い方を変えると、0と1は抽象的な概念ではなく、電子もしくは他の物理的実体として存在しているのです。
 
 自然では、A, C, G, U/T は分子であり、DNA(もしくはRNA)の鎖として保存されています。
-In nature, A, C, G and U/T are molecules, stored as chains in DNA (or RNA).
 
 計算機では、8ビットを1バイトとしてグループ化し、バイトがデータ処理の典型的な単位となります。
 
@@ -98,7 +97,7 @@ In nature, A, C, G and U/T are molecules, stored as chains in DNA (or RNA).
 コドンは6ビットの情報を持ちます（DNAの文字あたり2ビットで3文字なので6ビット。つまり、2⁶ = 64 通りの異なるコドンの値があります）。
 
 ここまでは非常にデジタルな話でした。
-もし疑問に思ったことがあれば、デジタルコードが記載された[WHOのドキュメント](https://mednet-communities.net/inn/db/media/docs/11889.doc)を自分の目で見てみてください。x
+もし疑問に思ったことがあれば、デジタルコードが記載された[WHOのドキュメント](https://mednet-communities.net/inn/db/media/docs/11889.doc)を自分の目で見てみてください。
 
 > *さらなる文献が[ここにあります](https://berthub.eu/articles/posts/what-is-life/)。
 > このリンク 'What is life' (「生命とは何か」) は、このページの残りの意味を理解するのに役立つかも知れません。
@@ -128,11 +127,11 @@ mRNAワクチンは、「免疫系を教育する」という同じ目的を、�
 ソースコード！
 ----------------
 [Let's start at the very beginning, a very good place
-to start](https://youtu.be/jp0opnxQ4rY?t=8). The WHO document has this
-helpful picture:
+to start](https://youtu.be/jp0opnxQ4rY?t=8). 
+WHOのドキュメントには役立つ図があります:
 
 <center>
-{{< figure src="/articles/vaccine-toc.png"  >}}
+{{< figure src="https://berthub.eu/articles/vaccine-toc.png"  >}}
 </center>
 
 This is a sort of table of contents. We'll start with the 'cap', actually
@@ -306,7 +305,7 @@ Life uses the following nearly universal table for mapping RNA codons to
 amino acids:
 
 <center>
-{{< figure src="/articles/rna-codon-table.png" caption="[The RNA codon table](https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables) (Wikipedia)" >}}
+{{< figure src="https://berthub.eu/articles/rna-codon-table.png" caption="[The RNA codon table](https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables) (Wikipedia)" >}}
 </center>
 
 In this table, we can see that the modifications in the vaccine (UUU ->
@@ -377,7 +376,7 @@ So what is happening here? If you look at a real SARS-CoV-2 particle, you
 can see the Spike protein as, well, a bunch of spikes:
 
 <center>
-{{< figure src="/articles/sars-em.jpg" caption="[SARS virus particles](https://en.wikipedia.org/wiki/Severe_acute_respiratory_syndrome_coronavirus) (Wikipedia)" >}}
+{{< figure src="https://berthub.eu/articles/sars-em.jpg" caption="[SARS virus particles](https://en.wikipedia.org/wiki/Severe_acute_respiratory_syndrome_coronavirus) (Wikipedia)" >}}
 </center>
 
 The spikes are mounted on the virus body ('the nucleocapsid protein'). But
@@ -451,7 +450,7 @@ mRNA and the mitochondrial encoded 12S ribosomal RNA to confer RNA stability
 and high total protein expression". To which I say, well done.
 
 <center>
-{{< figure src="/articles/vaccine.jpg" >}}
+{{< figure src="https://berthub.eu/articles/vaccine.jpg" >}}
 </center>
 
 
@@ -538,7 +537,7 @@ As noted, DNA is organized in 6-bit codons. Each codon uniquely encodes for
 a single amino acid, using a nearly universal table:
 
 <center>
-{{< figure src="/articles/codon-table.png" caption="[The codon table](https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables) (Wikipedia)" >}}
+{{< figure src="https://berthub.eu/articles/codon-table.png" caption="[The codon table](https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables) (Wikipedia)" >}}
 </center>
 
 From this table, we see that 'CCT' in DNA corresponds to the Proline
