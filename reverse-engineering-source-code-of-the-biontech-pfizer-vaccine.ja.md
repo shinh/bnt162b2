@@ -197,7 +197,7 @@ GAAΨAAACΨAGΨAΨΨCΨΨCΨGGΨCCCCACAGACΨCAGAGAGAACCCGCCACC
 
 私達の細胞がRNAをタンパク質に*翻訳*する必要があるとき、リボソーム（ribosome）という機械を用いて行います。
 リボソームはタンパク質の3Dプリンターのようなものです。
-それはRNA鎖を摂取し、それに基づいてアミノ酸のストリングを放出し、それはタンパク質に折り畳まれます。
+それはRNA鎖を取り込み、それに基づいてアミノ酸のストリングを放出し、それはタンパク質に折り畳まれます。
 リボソームはRNA鎖を取り込み、それに基づいてアミノ酸の鎖を作り出し、タンパク質へと折り畳みます。
 
 <center>
@@ -212,20 +212,16 @@ GAAΨAAACΨAGΨAΨΨCΨΨCΨGGΨCCCCACAGACΨCAGAGAGAACCCGCCACC
 下部にある黒いリボン状のものがRNAであり、緑の部分に現れてくるリボン状のものが形成されるタンパク質です。
 飛んできて飛び去っていくのが、アミノ酸およびRNAにフィットさせるためのアダプターです。
 
-This ribosome needs to physically sit on the RNA strand for it to get to
-work.  Once seated, it can start forming proteins based on further RNA it
-ingests.  From this, you can imagine that it can't yet read the parts where
-it lands on first.  This is just one of the functions of the UTR: the
-ribosome landing zone. The UTR provides 'lead-in'.
+リボソームはRNA鎖の上に物理的に接していないと機能することが出来ません。
+一旦RNAに接すると、さらに取り込むRNAに基づいてタンパク質の形成を始めます。
+このことから、最初に接触した部分については読み込むことができないと想像することが出来ます。
+このリボソームの着地領域としての機能は、非翻訳領域の機能の一つに過ぎません。
+非翻訳領域は「導線」(lead-in)を提供するのです。
 
-In addition to this, the UTR also contains metadata: when should translation
-happen?  And how much?  For the vaccine, they took the most 'right now' UTR
-they could find, taken from the [alpha globin
-gene](https://www.tandfonline.com/doi/full/10.1080/15476286.2018.1450054). 
-This gene is known to robustly produce a lot of proteins.  In previous
-years, scientists had already found ways to optimize this UTR even further
-(according to the WHO document), so this is not quite the alpha globin UTR. 
-It is better.
+これに加えて、非翻訳領域は「いつ翻訳が起こるべきか」「どの程度翻訳が起こるべきか」というメタデータも含んでいます。
+今回のワクチンでは、見つけられた限りで最も「今すぐ」を表す非翻訳領域が用いられており、これは[αグロビン遺伝子(alpha globin gene)](https://www.tandfonline.com/doi/full/10.1080/15476286.2018.1450054)に由来するものです。
+この遺伝子は多くの蛋白質を確実に生成することで知られています。
+（WHOの資料によれば）過去数年で科学者たちはこの非翻訳領域を更に最適化する方法を見つけており、したがってこれはαグロビンの非翻訳領域そのものではなく、より改良されたものです。
 
 The S glycoprotein signal peptide
 ---------------------------------
