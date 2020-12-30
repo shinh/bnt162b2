@@ -36,13 +36,13 @@ images:
 > *この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。
 > すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは
 > [@PowerDNS_Bert](https://twitter.com/PowerDNS_Bert) までご連絡いただければ幸いです*
-> (日本語訳については masahiro.sakai@gmail.com もしく [@masahiro_sakai](https://twitter.com/masahiro_sakai) まで)
+> (この日本語訳については masahiro.sakai@gmail.com もしくは [@masahiro_sakai](https://twitter.com/masahiro_sakai) まで)
 
 まず、ワクチンのソースコードという表現にいは違和感を感じるかも知れません。
 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？
 
 これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。
-(このワクチンは[BNT162b2](https://en.wikipedia.org/wiki/Tozinameran) もしくは Tozinameran [also known as Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083) としても知られています。)
+(このワクチンは[BNT162b2](https://en.wikipedia.org/wiki/Tozinameran) もしくは Tozinameran もしくは [Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083) としても知られています。)
 
 <center>
 {{< figure src="https://berthub.eu/articles/bnt162b2.png" caption="BNT162b2 mRNAワクチンの最初の500文字。出典: [World Health Organization](https://mednet-communities.net/inn/db/media/docs/11889.doc)">}}
