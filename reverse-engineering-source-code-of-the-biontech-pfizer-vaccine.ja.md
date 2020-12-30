@@ -39,13 +39,7 @@ images:
 > (日本語訳については masahiro.sakai@gmail.com もしく [@masahiro_sakai](https://twitter.com/masahiro_sakai) まで)
 
 まず、ワクチンのソースコードという表現にいは違和感を感じるかも知れません。
-ワクチンは腕に注射する液体なのに、そのソースコードってどういうことなのでしょうか？
-
-This is a good question, so let's start off with a small part of the very
-source code of the BioNTech/Pfizer vaccine, also known as
-[BNT162b2](https://en.wikipedia.org/wiki/Tozinameran), also
-known as Tozinameran [also known as
-Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083). 
+ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？
 
 これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。
 (このワクチンは[BNT162b2](https://en.wikipedia.org/wiki/Tozinameran) もしくは Tozinameran [also known as Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083) としても知られています。)
