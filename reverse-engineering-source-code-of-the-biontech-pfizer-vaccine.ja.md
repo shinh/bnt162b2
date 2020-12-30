@@ -26,16 +26,20 @@ images:
 / [Português](https://docs.google.com/document/d/1pDo40DXcpXjzqAUfhFfup50-IQ2Qct-mhLnmRpjFZWM/edit).
 / [Markdown for translating](https://raw.githubusercontent.com/berthubert/bnt162b2/master/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine.md)
 
-Welcome! In this post, we'll be taking a character-by-character look at the
-source code of the BioNTech/Pfizer SARS-CoV-2 mRNA vaccine.
+ようこそ!  この記事ではBioNTechとファイザー(Pfizer)のCOCID-19(SARS-CoV-2)向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
 
 > *I want to thank the large cast of people who spent time previewing this
 > article for legibility and correctness. All mistakes remain mine though,
 > but I would love to hear about them quickly at bert@hubertnet.nl or
 > [@PowerDNS_Bert](https://twitter.com/PowerDNS_Bert)*
 
-Now, these words may be somewhat jarring - the vaccine is a liquid that gets
-injected in your arm. How can we talk about source code?
+> *この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。
+> すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは
+> [@PowerDNS_Bert](https://twitter.com/PowerDNS_Bert) までご連絡いただければ幸いです*
+> (日本語訳については masahiro.sakai@gmail.com もしく [@masahiro_sakai](https://twitter.com/masahiro_sakai) まで)
+
+まず、ワクチンのソースコードという表現にいは違和感を感じるかも知れません。
+ワクチンは腕に注射する液体なのに、そのソースコードってどういうことなのでしょうか？
 
 This is a good question, so let's start off with a small part of the very
 source code of the BioNTech/Pfizer vaccine, also known as
@@ -43,101 +47,85 @@ source code of the BioNTech/Pfizer vaccine, also known as
 known as Tozinameran [also known as
 Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083). 
 
-<center>
-{{< figure src="/articles/bnt162b2.png" caption="First 500 characters of the BNT162b2 mRNA. Source: [World Health Organization](https://mednet-communities.net/inn/db/media/docs/11889.doc)">}}
-</center>
-
-The BNT162b mRNA vaccine has this digital code at its heart.  It is 4284
-characters long, so it would fit in a bunch of tweets.  At the very
-beginning of the vaccine production process, someone uploaded this code to a
-DNA printer (yes), which then converted the bytes on disk to actual DNA
-molecules.
+これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。
+(このワクチンは[BNT162b2](https://en.wikipedia.org/wiki/Tozinameran) もしくは Tozinameran [also known as Comirnaty](https://twitter.com/PowerDNS_Bert/status/1342109138965422083) としても知られています。)
 
 <center>
-{{< figure src="/articles/bioxp-3200.jpg" caption="A [Codex DNA](https://codexdna.com/products/bioxp-system/) BioXp 3200 DNA printer" >}}
+{{< figure src="/articles/bnt162b2.png" caption="BNT162b2 mRNAワクチンの最初の500文字。出典: [World Health Organization](https://mednet-communities.net/inn/db/media/docs/11889.doc)">}}
 </center>
 
-Out of such a machine come tiny amounts of DNA, which after a lot of
-biological and chemical processing end up as RNA (more about which later) in
-the vaccine vial.  A 30 microgram dose turns out to actually contain 30
-micrograms of RNA.  In addition, there is a clever lipid (fatty) packaging
-system that gets the mRNA into our cells.
+BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。
+これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。
+ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
 
-RNA is the volatile 'working memory' version of DNA.  DNA is like the flash
-drive storage of biology.  DNA is very durable, internally redundant and
-very reliable.  But much like computers do not execute code directly from a
-flash drive, before something happens, code gets copied to a faster,
-more versatile yet far more fragile system.
+<center>
+{{< figure src="/articles/bioxp-3200.jpg" caption="[Codex DNA](https://codexdna.com/products/bioxp-system/) 社のDNAプリンタ BioXp 3200" >}}
+</center>
 
-For computers, this is RAM, for biology it is RNA.  The resemblance is
-striking.  Unlike flash memory, RAM degrades very quickly unless lovingly
-tended to.  The reason the Pfizer/BioNTech mRNA vaccine must be stored in the
-deepest of deep freezers is the same: RNA is a fragile flower.
+DNAプリンタの出力は少量のDNAで、その後に多くの生物的・化学的な処理を経ることでワクチンのアンプルに収まっているRNAになります（RNAについては後で詳しく説明します）。
+30マイクログラムの用量には実際に30マイクログラムのRNAが含まれています。
+さらに、このmRNAを我々の細胞の中に運ぶためにいは、脂質による巧妙なパッケージングが用いられています。
 
-Each RNA character weighs on the order of 0.53&middot;10⁻²¹ grams, meaning
-there are 6&middot;10¹⁶ characters in a single 30 microgram vaccine dose. 
-Expressed in bytes, this is around 25 petabytes, although it must be said
-this consists of around 2000 billion repetitions of the same 4284
-characters.  The actual informational content of the vaccine is just over a
-kilobyte.  [SARS-CoV-2 itself](https://www.ncbi.nlm.nih.gov/projects/sviewer/?id=NC_045512&tracks=[key:sequence_track,name:Sequence,display_name:Sequence,id:STD649220238,annots:Sequence,ShowLabel:false,ColorGaps:false,shown:true,order:1][key:gene_model_track,name:Genes,display_name:Genes,id:STD3194982005,annots:Unnamed,Options:ShowAllButGenes,CDSProductFeats:true,NtRuler:true,AaRuler:true,HighlightMode:2,ShowLabel:true,shown:true,order:9]&v=1:29903&c=null&select=null&slim=0) weighs in at around 7.5 kilobytes.
+RNAはは、揮発性の「作業メモリー」版のDNAです。
+DNAは生物学におけるフラッシュメモリのようなもので、永続性、内部的な冗長性があり、またとても信頼性が高いのです。
+しかし、計算機と同様、フラッシュメモリ上のコードを直接実行することはなく、その前により高速で融通が効き、代わりに壊れやすいようなシステムへとコードを複製します。
 
-The briefest bit of background
-------------------------------
-DNA is a digital code. Unlike computers, which use 0 and 1, life uses A, C, G
-and U/T (the 'nucleotides', 'nucleosides' or 'bases'). 
+計算機の場合にはそれはRAMで、生物の場合にはそれはRNAです。
+これは特筆すべき対応です。
+フラッシュメモリと異なりRAMは、甲斐甲斐しく手入れをしない限り、急速に状態が劣化します。
+ファイザーとBioNTechのmRNAワクチンを大型冷凍庫の最深部に保管しなくてはならないのも同じ理由です。
+RNAは儚い花なのです。
 
-In computers we store the 0 and 1 as the presence or absence of a charge, or
-as a current, as a magnetic transition, or as a voltage, or as a modulation
-of a signal, or as a change in reflectivity.  Or in short, the 0 and 1 are
-not some kind of abstract concept - they live as electrons and in many other
-physical embodiments.
+RNAの一文字は、およそ 0.53&middot;10⁻²¹ ぐらむの重さで、したがって 30 マイクログラムのワクチン用量には、およそ 6&middot;10¹⁶ 文字が含まれています。
+バイト単位で表現すると約25ペタバイト(PB)ですが、これが同じ4284文字の約2兆回の繰り返しであることは言っておくべきでしょう。
+ワクチンの実際の情報量は1キロバイトちょっとしかありません。
+ちなみに、[SARS-CoV-2それ自体](https://www.ncbi.nlm.nih.gov/projects/sviewer/?id=NC_045512&tracks=[key:sequence_track,name:Sequence,display_name:Sequence,id:STD649220238,annots:Sequence,ShowLabel:false,ColorGaps:false,shown:true,order:1][key:gene_model_track,name:Genes,display_name:Genes,id:STD3194982005,annots:Unnamed,Options:ShowAllButGenes,CDSProductFeats:true,NtRuler:true,AaRuler:true,HighlightMode:2,ShowLabel:true,shown:true,order:9]&v=1:29903&c=null&select=null&slim=0)は約7.5キロバイトです。
 
+背景を少しだけ
+------------
+DNAはデジタルなコードです。
+ただし、計算機が0と1を使っているのに対して、生命は A, C, G, UもしくはTの4つのコード(「ヌクレオチド」「ヌクレオシド」「塩基」などと呼ばれます)を用います。
+
+計算機では0と1を電荷の有無、電流（量）、磁化、電圧、信号の変調、反射率の変化などによって保存します。
+言い方を変えると、0と1は抽象的な概念ではなく、電子もしくは他の物理的実体として存在しているのです。
+
+自然では、A, C, G, U/T は分子であり、DNA(もしくはRNA)の鎖として保存されています。
 In nature, A, C, G and U/T are molecules, stored as chains in DNA (or RNA).
 
-In computers, we group 8 bits into a byte, and the byte is the typical unit
-of data being processed.
+計算機では、8ビットを1バイトとしてグループ化し、バイトがデータ処理の典型的な単位となります。
 
-Nature groups 3 nucleotides into a codon, and this codon is the typical unit
-of processing. A codon contains 6 bits of information (2 bits per DNA
-character, 3 characters = 6 bits. This means 2⁶ = 64 different codon values).
+自然では、3つのヌクレオチドを1コドンとしてグループ化し、コドンが処理の典型的な単位となります。
+コドンは6ビットの情報を持ちます（DNAの文字あたり2ビットで3文字なので6ビット。つまり、2⁶ = 64 通りの異なるコドンの値があります）。
 
-Pretty digital so far. When in doubt, [head to the WHO
-document](https://mednet-communities.net/inn/db/media/docs/11889.doc) with the
-digital code to see for yourself.
+ここまでは非常にデジタルな話でした。
+もし疑問に思ったことがあれば、デジタルコードが記載された[WHOのドキュメント](https://mednet-communities.net/inn/db/media/docs/11889.doc)を自分の目で見てみてください。x
 
-> *Some further reading is [available
-> here](https://berthub.eu/articles/posts/what-is-life/) - this link ('What
-> is life') might help make sense of the rest of this page. Or, if you like
-> video, I have [two hours for you](https://berthub.eu/dna).*
+> *さらなる文献が[ここにあります](https://berthub.eu/articles/posts/what-is-life/)。
+> このリンク 'What is life' (「生命とは何か」) は、このページの残りの意味を理解するのに役立つかも知れません。
+> もしくは、動画の方が良ければ、[二時間の動画もあります](https://berthub.eu/dna)。*
 
-So what does that code DO?
---------------------------
-The idea of a vaccine is to teach our immune system how to fight a pathogen,
-without us actually getting ill.  Historically this has been done by
-injecting a weakened or incapacitated (attenuated) virus, plus an 'adjuvant'
-to scare our immune system into action.  This was a decidedly analogue
-technique involving billions of eggs (or insects).  It also required a lot
-of luck and loads of time. Sometimes a different (unrelated) virus was also
-used.
+ではこのコードは何をするのでしょうか?
+--------------------------------
 
-An mRNA vaccine achieves the same thing ('educate our immune system') but in
-a laser like way.  And I mean this in both senses - very narrow but also
-very powerful.
+ワクチンは、実際にその病気になることなく、ある病原菌との戦い方を我々の免疫系に教えるためのものです。
+歴史的には、弱毒化もしくは不活化したウイルスと、免疫系を怖がらせて行動を起こさせるための「アジュバント」（adjuvant）を注射することによって行われてきました。
+これは数十億個の卵や昆虫を用いて行われる極めてアナログな技術です。
+さらに、多くの運とリードタイムが必要でした。
+p時には、異なる（無関係の）ウイルスが用いられることもありました。
 
-So here is how it works. The injection contains volatile genetic material
-that describes the famous SARS-CoV-2 'Spike' protein. Through clever
-chemical means, the vaccine manages to get this genetic material into some of
-our cells.
+mRNAワクチンは、「免疫系を教育する」という同じ目的を、レーザーのような方法で実現します。
+ここでレーザーのようなと言っているのは、非常に狭められたという意味と、非常に強力という２つの意味です。
 
-These then dutifully start producing SARS-CoV-2 Spike proteins in large
-enough quantities that our immune system springs into action.  Confronted
-with Spike proteins, and (importantly) tell-tale signs that cells have been
-taken over, our immune system develops a powerful response against multiple
-aspects of the Spike protein AND the production process.
+ではどう機能するか説明しましょう。
+注射にはSARS-CoV-2の有名な「スパイク」タンパク質を表す一時的な遺伝物質が含まれています。
+巧妙な化学的手段によって、ワクチンはこの遺伝物質を我々の細胞の一部の内部に取り入れます。
 
-And this is what gets us to the 95% efficient vaccine.
+細胞に取り込まれた遺伝物質は、我々の免疫系が行動を起こすのに充分なSARS-CoV-2のスパイクタンパク質の生産を開始します。
+スパイクタンパク質と、(より重要な)細胞が乗っ取られているという明確な兆候に直面して、我々の免疫系はスパイクタンパク質の「両方」に対抗する強力な対応手段を開発します。
 
-The source code!
+これが有効性95%のワクチンを達成したのです。
+
+ソースコード！
 ----------------
 [Let's start at the very beginning, a very good place
 to start](https://youtu.be/jp0opnxQ4rY?t=8). The WHO document has this
