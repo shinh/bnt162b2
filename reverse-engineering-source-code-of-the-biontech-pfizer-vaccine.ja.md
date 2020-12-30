@@ -178,7 +178,7 @@ GAAΨAAACΨAGΨAΨΨCΨΨCΨGGΨCCCCACAGACΨCAGAGAGAACCCGCCACC
 
 これは過去に行った基礎科学研究の成果の収穫です。
 Ψを用いるテクニックの[発見者たち](https://twitter.com/PennMedicine/status/1341766354232365059)は、[研究](https://www.statnews.com/2020/11/10/the-story-of-mrna-how-a-once-dismissed-idea-became-a-leading-technology-in-the-covid-vaccine-race/)の資金を得て受け入れてもらうために闘わなくてはなりませんでした。
-私達はみなこのことに感謝すべきですし、[いずれノーベル賞が授与されるであろう](https://twitter.com/PowerDNS_Bert/status/1329861047168225281)と確信しています。
+私達は皆このことに感謝すべきですし、[いずれノーベル賞が彼らに授与されるであろう](https://twitter.com/PowerDNS_Bert/status/1329861047168225281)と私は確信しています。
 
 > ウイルスも ψ テクニックを使って我々の免疫システムを出し抜くことができるのかと、多くの人に聞かれました。
 > 簡潔に答えると、その可能性は極めて低いです。
@@ -188,7 +188,7 @@ GAAΨAAACΨAGΨAΨΨCΨΨCΨGGΨCCCCACAGACΨCAGAGAGAACCCGCCACC
 > "[No, Really, mRNA Vaccines Are Not Going To Affect Your DNA](https://www.deplatformdisease.com/blog/no-really-mrna-vaccines-are-not-going-to-affect-your-dna)" (「mRNAワクチンはあなたのDNAには影響を与えません」)も参考になる記事です。
 
 5' 非翻訳領域 に話を戻すと、この51文字は一体何をするのでしょうか？
-自然に存在するものは何でもそうであるように、ほとんど何も単一の明確な機能を持っているわけではありません。
+自然に存在するものは何でもそうであるように、単一の明確な機能を持っているものはほとんど何もありません。
 
 私達の細胞がRNAをタンパク質に*翻訳*する必要があるとき、リボソーム（ribosome）という機械を用いて行います。
 リボソームはタンパク質の3Dプリンターのようなものです。
