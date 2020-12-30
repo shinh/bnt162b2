@@ -237,8 +237,8 @@ S糖タンパク質シグナルペプチド
 
 ```
            3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3
-Virus:   AUG UUU GUU UUU CUU GUU UUA UUG CCA CUA GUC UCU AGU CAG UGU GUU
-Vaccine: AUG UUC GUG UUC CUG GUG CUG CUG CCU CUG GUG UCC AGC CAG UGU GUU
+ウイルス: AUG UUU GUU UUU CUU GUU UUA UUG CCA CUA GUC UCU AGU CAG UGU GUU
+ワクチン: AUG UUC GUG UUC CUG GUG CUG CUG CCU CUG GUG UCC AGC CAG UGU GUU
                !   !   !   !   ! ! ! !     !   !   !   !   !            
 ```
 
@@ -274,13 +274,6 @@ RNAには4種類の文字があり、コドンは3つの文字からなるので
 しかし、GとCを[多量](https://www.nature.com/articles/nrd.2017.243)に含むRNAも、[より効率的にタンパク質に変換される](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1463026/)ことが分かっています。
 
 そして、これはワクチンのRNAにおいて可能な限り多くの文字をGとCに置き換えることによって達成できるのです。
-
-> I'm slightly fascinated by the *one* change that did not lead to an
-> additional C or G, the CCA -> CCU modification. If anyone knows the reason,
-> please let me know! Note that I'm aware that some codons are more common
-> than others in the human genome, but [I also read that this does not
-> influence translation speed a
-> lot](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006024).q
 
 > 自分はCもしくはGの増加に繋がらない*ただ1箇所*の変更である CCA から CCU への変更が少し気になっています。
 > もし、理由を知っている人がいたら、ぜひ教えて下さい！
