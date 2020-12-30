@@ -218,28 +218,22 @@ GAAΨAAACΨAGΨAΨΨCΨΨCΨGGΨCCCCACAGACΨCAGAGAGAACCCGCCACC
 この遺伝子は多くの蛋白質を確実に生成することで知られています。
 （WHOの資料によれば）過去数年で科学者たちはこの非翻訳領域を更に最適化する方法を見つけており、したがってこれはαグロビンの非翻訳領域そのものではなく、より改良されたものです。
 
-The S glycoprotein signal peptide
----------------------------------
-As noted, the goal of the vaccine is to get the cell to produce copious
-amounts of the Spike protein of SARS-CoV-2. Up to this point, we have mostly
-encountered metadata and "calling convention" stuff in the vaccine source
-code. But now we enter the actual viral protein territory. 
+S糖タンパク質シグナルペプチド
+-------------------------
+先に述べたように、ワクチンのゴールは細胞にSARS-CoV-2のスパイクタンパク質を大量に作らせることです。
+これまでに、ワクチンのソースコード中の主にメタデータや「呼び出し規約」にい関わる部分を見てきましたが、今度はウイルス性のタンパク質の領域を見ていきましょう。
 
-We still have one layer of metadata to go however. Once the ribosome (from the
-splendid animation above) has made a protein, that protein still needs to go
-somewhere. This is encoded in the "S glycoprotein signal peptide (extended leader
-sequence)". 
+ですが、見るべきメタデータの層がまだ一層残っています。
+リボソームが（上の素晴らしいアニメーションのように）タンパク質を作ったあと、そのタンパク質はどこかに運ばれる必要があります。
+この情報は「S糖タンパク質シグナルペプチド（拡張リーダー配列）」(S glycoprotein signal peptide (extended leader sequence))に符号化されています。
 
-The way to see this is that at the beginning of the protein there is a sort
-of address label - encoded as part of the protein itself.  In this specific
-case, the signal peptide says that this protein should exit the cell via the
-"endoplasmic reticulum".  Even Star Trek lingo is not as fancy as this!
+これを理解するためには、まず、タンパク質の先頭に（タンパク質自体の一部として符号化された）アドレスラベルの一種があります。
+今回のケースでは、シグナルペプチドは「このタンパク質は『小胞体』（endoplasmic reticulum）経由で細胞外に放出されるべき」と言っています。
+スタートレック用語でさえ、これほど風変わりなものはありません！
 
-The "signal peptide" is not very long, but when we look at the code, there
-are differences between the viral and vaccine RNA:
+この「シグナルペプチド」は長いものではありませんが、実際に見てみるとウイルスのRNAとワクチンのRNAで違いがあることが分かります:
 
-(Note that for comparison purposes, I have replaced the fancy modified Ψ by a
-regular RNA U)
+(ただし、比較のために、風変わりなψを、通常のRNAのUに置き換えてあります)
 
 ```
            3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3
@@ -248,54 +242,49 @@ Vaccine: AUG UUC GUG UUC CUG GUG CUG CUG CCU CUG GUG UCC AGC CAG UGU GUU
                !   !   !   !   ! ! ! !     !   !   !   !   !            
 ```
 
-So what is going on? I have not accidentally listed the RNA in groups of 3
-letters. Three RNA characters make up a codon. And every codon encodes for a
-specific amino acid. The signal peptide in the vaccine consists of *exactly*
-the same amino acids as in the virus itself. 
+さあ、どうなっているでしょうか？
+RNAを3文字毎にグループして並べたのは偶然ではありません。
+RNA 3文字はコドンを構成し、すべてのコドンは固有のアミノ酸を符号化しています。
+そして、ワクチン中のシグナルペプチドはウイルス中のアミノ酸と*完全に*同じアミノ酸からなっています。
 
-So how come the RNA is different?
+それならば、なぜRNAが異なるのでしょうか？
 
-There are 4³=64 different codons, since there are 4 RNA characters, and
-there are three of them in a codon. Yet there are only 20 different
-amino acids. This means that multiple codons encode for the same amino acid.
+RNAには4種類の文字があり、コドンは3つの文字からなるので、4³=64種類のコドンが存在します。
+しかし、アミノ酸はたったの20種類しかありません。
+つまり、複数のコドンが同じいアミノ酸を符号化しているのです。
 
-Life uses the following nearly universal table for mapping RNA codons to
-amino acids:
+生命は、RNAコドンをアミノ酸へ写像するために、以下のようなほぼ普遍的な表を用いています：
 
 <center>
-{{< figure src="https://berthub.eu/articles/rna-codon-table.png" caption="[The RNA codon table](https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables) (Wikipedia)" >}}
+{{< figure src="https://berthub.eu/articles/rna-codon-table.png" caption="[RNA・コドン表](https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables) (Wikipedia)" >}}
 </center>
 
-In this table, we can see that the modifications in the vaccine (UUU ->
-UUC) are all *synonymous*.  The vaccine RNA code is different, but the same
-amino acids and the same protein come out.
+この表から、ワクチンでの変更（UUU → UUC）はすべて*同義*のコドンへの変更であることを見て取ることができます。
+ワクチンのRNAコードは異なるものではあるものの、結果として得られるアミノ酸とタンパク質は同じものなのです。
 
-If we look closely, we see that the majority of the changes happen in the
-third codon position, noted with a '3' above. And if we check the universal
-codon table, we see that this third position indeed often does not matter
-for which amino acid is produced.
+さらに、注意深く見ることで、変更の多くはコドンの３文字目（上の比較で「3」と書かれている箇所で）で起こっていることが分かります。
+そして、普遍コドン表を確認すると、実際３文字目の変更は生成されるアミノ酸を変えないことが多いことが分かります。
 
-So, the changes are synonymous, but then why are they there?  Looking
-closely, we see that all changes *except one* lead to more C and Gs.
+同義の変更ならば、なぜそもそも変更する必要があるのでしょうか？
+よく見てみると、*一箇所を除いて*すべての変更はCとGを増やす変更になっていることが分かります。
 
-So why would you do that? As noted above, our immune system takes a very dim
-view of 'exogenous' RNA, RNA code coming from outside the cell. To evade
-detection, the 'U' in the RNA was already replaced by a Ψ. 
+なぜそうするのでしょうか？
+上でも述べたように、我々の免疫系は細胞外からやってきた「外来の」RNAを快く思っておらず、このワクチンでは免疫系による検知をすり抜けるために既にRNA中のUをψに置き換えたのでした。
 
-However, it turns out that RNA with [a higher
-amount](https://www.nature.com/articles/nrd.2017.243) of Gs and Cs is
-also [converted more efficiently into
-proteins](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1463026/), 
+しかし、GとCを[多量](https://www.nature.com/articles/nrd.2017.243)に含むRNAも、[より効率的にタンパク質に変換される](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1463026/)ことが分かっています。
 
-And this has been achieved in the vaccine RNA by replacing many characters
-with Gs and Cs wherever this was possible.
+そして、これはワクチンのRNAにおいて可能な限り多くの文字をGとCに置き換えることによって達成できるのです。
 
 > I'm slightly fascinated by the *one* change that did not lead to an
 > additional C or G, the CCA -> CCU modification. If anyone knows the reason,
 > please let me know! Note that I'm aware that some codons are more common
 > than others in the human genome, but [I also read that this does not
 > influence translation speed a
-> lot](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006024).
+> lot](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006024).q
+
+> 自分はCもしくはGの増加に繋がらない*ただ1箇所*の変更である CCA から CCU への変更が少し気になっています。
+> もし、理由を知っている人がいたら、ぜひ教えて下さい！
+> なお、一部のコドンは他のコドンよりも人間のゲノムの中でより頻繁に現れることは知っていますが、[それが翻訳速度に大きな影響を与えないということも読みました](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006024)。
 
 The actual Spike protein
 ------------------------
