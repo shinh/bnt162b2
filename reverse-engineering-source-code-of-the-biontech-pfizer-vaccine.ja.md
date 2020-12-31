@@ -335,23 +335,22 @@ SARS-CoV-2の実際の粒子を見ると、たくさんのスパイクになっ�
 > パンデミックが進行中なのでハイタッチは控えめなものの、このワクチンに対して貢献できて光栄ですとのことでした。
 > また、彼ら以外の多くのグループや、労働者やボランティアの果たした役割の重要性についても強調していました。
 
-The end of the protein, next steps
-----------------------------------
-If we scroll through the rest of the source code, we encounter some small
-modifications at the end of the Spike protein:
+タンパク質部分の終わりと、次のステップ
+--------------------------------
+ソースコードの残りをスクロールしていくと、スパイクタンパク質の終わりに小さな変更が見つかります:
 
 ```
           V   L   K   G   V   K   L   H   Y   T   s             
-Virus:   GUG CUC AAA GGA GUC AAA UUA CAU UAC ACA UAA
-Vaccine: GUG CUG AAG GGC GUG AAA CUG CAC UAC ACA UGA UGA 
+ウイルス: GUG CUC AAA GGA GUC AAA UUA CAU UAC ACA UAA
+ワクチン: GUG CUG AAG GGC GUG AAA CUG CAC UAC ACA UGA UGA 
           V   L   K   G   V   K   L   H   Y   T   s   s          
                !   !   !   !     ! !   !          ! 
 ```
 
-At the end of a protein we find a 'stop' codon, denoted here by a lowercase
-'s'.  This is a polite way of saying that the protein should end here. The
-original virus uses the UAA stop codon, the vaccine uses two UGA stop
-codons, perhaps just for good measure.
+タンパク質の終わりに、小文字のsで表される「終止」(stop)コドンがあります。
+これはタンパク質の終了を表す行儀の良い方法です。
+もとのウイルスではUAA終止コドン一つが用いられているのに対して、ワクチンの方では２つのUGA終止コドンが用いられています。
+これはただのオマケかも知れません。
 
 The 3' Untranslated Region
 --------------------------
