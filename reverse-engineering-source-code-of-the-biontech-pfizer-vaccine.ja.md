@@ -279,78 +279,61 @@ RNAには4種類の文字があり、コドンは3つの文字からなるので
 > もし、理由を知っている人がいたら、ぜひ教えて下さい！
 > なお、一部のコドンは他のコドンよりも人間のゲノムの中でより頻繁に現れることは知っていますが、[それが翻訳速度に大きな影響を与えないということも読みました](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006024)。
 
-The actual Spike protein
-------------------------
-The next 3777 characters of the vaccine RNA are similarly 'codon optimized'
-to add a lot of C's and G's. In the interest of space I won't list all
-the code here, but we are going to zoom in on one exceptionally special
-bit. This is the bit that makes it work, the part that will actually help us
-return to life as normal:
+実際のスパイクタンパク質
+--------------------
+ワクチンRNAの続く3777文字も、同様にCとGを増やす「コドン最適化」が行われています。
+スペースの都合でコード全体をここに掲載はしませんが、非常に特殊な部分があるのでそこをクローズアップしてみましょう。
+これはワクチンが機能するために必要で、我々が普通の生活に戻る助けとなる部分です。
 
 ```
                   *   *
           L   D   K   V   E   A   E   V   Q   I   D   R   L   I   T   G
-Virus:   CUU GAC AAA GUU GAG GCU GAA GUG CAA AUU GAU AGG UUG AUC ACA GGC
-Vaccine: CUG GAC CCU CCU GAG GCC GAG GUG CAG AUC GAC AGA CUG AUC ACA GGC
+ウイルス: CUU GAC AAA GUU GAG GCU GAA GUG CAA AUU GAU AGG UUG AUC ACA GGC
+ワクチン: CUG GAC CCU CCU GAG GCC GAG GUG CAG AUC GAC AGA CUG AUC ACA GGC
           L   D   P   P   E   A   E   V   Q   I   D   R   L   I   T   G
            !     !!! !!        !   !       !   !   !   ! !              
 ```
 
-Here we see the usual synonymous RNA changes. For example, in the first
-codon we see that CUU is changed into CUG. This adds another 'G' to the
-vaccine, which we know helps enhance protein production. Both CUU
-and CUG encode for the amino acid 'L' or Leucine, so nothing changed in the
-protein.
+ここでも意味を変えないようなRNAの変更がされていることが見て取れます。
+例えば、最初のコドンはCUUからCUGに変更されています。
+これはワクチンにGを追加することで、タンパク質の生成を高めることができるのでした。
+CUUとCUGは両方ともLで表されるロイシン (leucine) というアミノ酸を符号化しているので、生成されるタンパク質は変わりません。
 
-When we compare the entire Spike protein in the vaccine, all changes are
-synonymous like this.. except for two, and this is what we see here.
+ワクチン中のスパイクタンパク質の全体をウイルスのそれと比較すると、変更は二箇所を除いてはすべて意味を変えない変更です。
+その二箇所がまさに今見ている箇所です。
 
-The third and fourth codons above represent actual changes. The K and V
-amino acids there are both replaced by 'P' or Proline. For 'K' this required
-three changes ('!!!') and for 'V' it required only two ('!!'). 
+上記の３つ目と４つ目のコドンが実際の変更箇所です。
+KとVで表されるアミノ酸が両方ともプロリン (Proline) を表すPに置き換えられています。
+そのために、Kに対しては3文字の変更(「!!!」)と、Vに対しては2文字のみの変更（「!!」）が必要です。
 
-**It turns out that these two changes enhance the vaccine efficiency
-enormously**.
+**この二箇所の変更はワクチンの有効性を非常に高めることが判明しています**。
 
-So what is happening here? If you look at a real SARS-CoV-2 particle, you
-can see the Spike protein as, well, a bunch of spikes:
+一体何が起こっているのでしょうか？
+SARS-CoV-2の実際の粒子を見ると、たくさんのスパイクになっている、スパイクタンパク質が見えます:
 
 <center>
-{{< figure src="https://berthub.eu/articles/sars-em.jpg" caption="[SARS virus particles](https://en.wikipedia.org/wiki/Severe_acute_respiratory_syndrome_coronavirus) (Wikipedia)" >}}
+{{< figure src="https://berthub.eu/articles/sars-em.jpg" caption="[SARSウイルスの粒子](https://en.wikipedia.org/wiki/Severe_acute_respiratory_syndrome_coronavirus) (Wikipedia)" >}}
 </center>
 
-The spikes are mounted on the virus body ('the nucleocapsid protein'). But
-the thing is, our vaccine is only generating the spikes itself, and we're
-not mounting them on any kind of virus body.
+これらのスパイクはウイルス本体（「ヌクレオカプシドタンパク質」）に固定されています。
+ここで鍵となるのは、我々のワクチンはスパイクそれ自体を生成するのみで、スパイクをいかなる種類のウイルス本体にも固定しない点です。
 
-It turns out that, unmodified, freestanding Spike proteins collapse into a
-different structure. If injected as a vaccine, this would indeed cause our
-bodies to develop immunity.. but only against the collapsed spike protein.
+固定されていない独立したスパイクタンパク質は、異なる構造に潰れてしまうことが判明しています。
+それをワクチンとして接種すると、免疫を得ることが出来ますが、得られる免疫は潰れたスパイクタンパク質に対するものだけなので。
 
-And the real SARS-CoV-2 shows up with the spiky Spike. The vaccine would not
-work very well in that case.
+そして、実際のSARS-CoV-2はトゲトゲしたスパイクなので、ワクチンはあまり有効に機能しません。
 
-So what to do? In [2017 it was described how putting a double Proline
-substitution in just the right
-place](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5584442/) would make the
-SARS-CoV-1 and MERS
-S proteins take up their 'pre-fusion' configuration, even without being part of
-the whole virus. This works because Proline is a very rigid amino acid. It
-acts as a kind of splint, stabilising the protein in the state we need to
-show to the immune system.
+それではどうするのでしょうか？
+2017年に、[適切な箇所を２つのプロリンで置き換えること](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5584442/)によって、SARS-CoV-1 と MERS のSタンパク質を、ウイルス全体の一部にすることなく「結合前」(pre-fusion)の状態に保つことができることが報告されています。
+なぜそんなことが出来るかというと、プロリンは剛性の高いアミノ酸であるためです。
+プロリンは添え木のような役割を果たして、タンパク質を免疫系に見せたい状態のまま安定化させるのです。
 
-The [people](https://twitter.com/goodwish916) that
-[discovered](https://twitter.com/KizzyPhD) this should be walking
-around high-fiving themselves incessantly. Unbearable amounts of smugness
-should be emanating from them. [And it would all be well
-deserved](https://twitter.com/McLellan_Lab/status/1291077489566142464). 
+これを[発見](https://twitter.com/KizzyPhD)した[人達](https://twitter.com/goodwish916)は、耐えきれない気持ちの高まりから、ひっきりなしにハイタッチしながら歩き回っているに違いありません。
+[それに値するだけの価値があるのです](https://twitter.com/McLellan_Lab/status/1291077489566142464)。
 
-> Update!  I have been contacted by the [McLellan
-> lab](https://twitter.com/McLellan_Lab/status/1291077489566142464), one of the
-> groups behind the Proline discovery.  They tell me the high-fiving is
-> subdued because of the ongoing pandemic, but they are pleased to have
-> contributed to the vaccines. They also stress the importance of many other
-> groups, workers and volunteers.
+> 追記！ プロリンに関する発見に関わった [マクレラン研究室（McLellan lab）](https://twitter.com/McLellan_Lab/status/1291077489566142464)から連絡がありました。
+> パンデミックが進行中なのでハイタッチは控えめなものの、このワクチンに対して貢献できて光栄ですとのことでした。
+> また、彼ら以外の多くのグループや、労働者やボランティアの果たした役割の重要性についても強調していました。
 
 The end of the protein, next steps
 ----------------------------------
