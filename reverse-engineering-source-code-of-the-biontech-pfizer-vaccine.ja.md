@@ -352,24 +352,17 @@ SARS-CoV-2の実際の粒子を見ると、たくさんのスパイクになっ�
 もとのウイルスではUAA終止コドン一つが用いられているのに対して、ワクチンの方では２つのUGA終止コドンが用いられています。
 これはただのオマケかも知れません。
 
-The 3' Untranslated Region
---------------------------
-Much like the ribosome needed some lead-in at the 5' end, where we found the
-'five prime untranslated region', at the end of a protein coding region we find a similar
-construct called the 3' UTR. 
+3'（スリー・プライム）非翻訳領域
+----------------------------
+リボソームが5'末端で導入部として5'非翻訳領域が必要だったように、タンパク質のコーディング領域の終わりには3'（スリー・プライム）非翻訳領域 と呼ばれる同様の機構があります。
 
-Many words could be written about the 3' UTR, but here I quote [what the
-Wikipedia
-says](https://en.wikipedia.org/wiki/Three_prime_untranslated_region): "The 3'-untranslated region plays a crucial role in gene
-expression by influencing the localization, stability, export, and
-translation efficiency of an mRNA .. **despite our current understanding of
-3'-UTRs, they are still relative mysteries**".
+3'非翻訳領域について長々と説明することも出来ますが、ここではその代わりに[Wikipediaの説明](https://en.wikipedia.org/wiki/Three_prime_untranslated_region)を引用しておきましょう:
+3'非翻訳領域は、mRNAの「局所化」「安定化」「核外輸送」「翻訳後」に影響を与えることにより、遺伝子発現において重要な役割を果たします。
+…… **3'非翻訳領域については現在ある程度分かってはいるものの、比較的謎の部分も多い**。
 
-What we do know is that certain 3'-UTRs are very successful at promoting
-protein expression.  According to the WHO document, the BioNTech/Pfizer
-vaccine 3'-UTR was picked from "the amino-terminal enhancer of split (AES)
-mRNA and the mitochondrial encoded 12S ribosomal RNA to confer RNA stability
-and high total protein expression". To which I say, well done.
+分かっていることは、ある種の3'非翻訳領域はタンパク質の発現の促進に非常に成功していることです。
+WHOのドキュメントによれば、BioNTechとファイザーのワクチンの3'非翻訳領域は、「RNAの安定性と高いタンパク質発現量を実現するために、AES（amino-terminal enhancer of split） mRNA とミトコンドリアの12SリボソームRNA（the mitochondrial encoded 12S ribosomal RNA）から取り出した」とのこと。
+私に言えることは、「よくやった」ということです。
 
 <center>
 {{< figure src="https://berthub.eu/articles/vaccine.jpg" >}}
