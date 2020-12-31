@@ -7,11 +7,9 @@
  この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです (この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
  まず、ワクチンのソースコードという表現には違和感を感じるかも知れません。 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？
 これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)
-BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
-DNAプリンタの出力は少量のDNAで、その後に多くの生物的・化学的な処理を経ることでワクチンのアンプルに収まっているRNAになります（RNAについては後で詳しく説明します）。 30マイクログラムの用量には実際に30マイクログラムのRNAが含まれています。 さらに、このmRNAを我々の細胞の中に運ぶためには、脂質による巧妙なパッケージングが用いられています。
-RNAはは、揮発性の「作業メモリー」版のDNAです。 DNAは生物学におけるフラッシュメモリのようなもので、永続性と内部的な冗長性があり、またとても信頼性が高いのです。 しかし、計算機と同様、フラッシュメモリ上のコードを直接実行することはなく、その前により高速で融通が効き、代わりに壊れやすいようなシステムへとコードを複製します。
-計算機の場合にはそれはRAMで、生物の場合にはそれはRNAです。 これは特筆すべき対応です。 フラッシュメモリと異なり、RAMは甲斐甲斐しく手入れをしない限り、急速に状態が劣化します。 ファイザーとBioNTechのmRNAワクチンを大型冷凍庫の最深部に保管しなくてはならないのも同じ理由です。 RNAは儚い花なのです。
-RNAの一文字は、およそ 0.53·10⁻²¹ グラムの重さで、したがって 30 マイクログラムのワクチン用量には、およそ 6·10¹⁶ 文字が含まれています。 バイト単位で表現すると約25ペタバイト(PB)ですが、これが同じ4284文字の約2兆回の繰り返しであることは言っておくべきでしょう。 ワクチンの実際の情報量は1キロバイトちょっとしかありません。 ちなみに、SARS-CoV-2それ自体は約7.'>
+   BNT162b2 mRNAワクチンの最初の500文字。出典: World Health Organization
+   BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
+   Codex DNA 社のDNAプリンタ BioXp 3200'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='BioNTechとファイザーのSARS-CoV-2ワクチンのソースコードのリバースエンジニアリング • My New Hugo Site'>
@@ -20,11 +18,9 @@ RNAの一文字は、およそ 0.53·10⁻²¹ グラムの重さで、したが
  この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです (この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
  まず、ワクチンのソースコードという表現には違和感を感じるかも知れません。 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？
 これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)
-BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
-DNAプリンタの出力は少量のDNAで、その後に多くの生物的・化学的な処理を経ることでワクチンのアンプルに収まっているRNAになります（RNAについては後で詳しく説明します）。 30マイクログラムの用量には実際に30マイクログラムのRNAが含まれています。 さらに、このmRNAを我々の細胞の中に運ぶためには、脂質による巧妙なパッケージングが用いられています。
-RNAはは、揮発性の「作業メモリー」版のDNAです。 DNAは生物学におけるフラッシュメモリのようなもので、永続性と内部的な冗長性があり、またとても信頼性が高いのです。 しかし、計算機と同様、フラッシュメモリ上のコードを直接実行することはなく、その前により高速で融通が効き、代わりに壊れやすいようなシステムへとコードを複製します。
-計算機の場合にはそれはRAMで、生物の場合にはそれはRNAです。 これは特筆すべき対応です。 フラッシュメモリと異なり、RAMは甲斐甲斐しく手入れをしない限り、急速に状態が劣化します。 ファイザーとBioNTechのmRNAワクチンを大型冷凍庫の最深部に保管しなくてはならないのも同じ理由です。 RNAは儚い花なのです。
-RNAの一文字は、およそ 0.53·10⁻²¹ グラムの重さで、したがって 30 マイクログラムのワクチン用量には、およそ 6·10¹⁶ 文字が含まれています。 バイト単位で表現すると約25ペタバイト(PB)ですが、これが同じ4284文字の約2兆回の繰り返しであることは言っておくべきでしょう。 ワクチンの実際の情報量は1キロバイトちょっとしかありません。 ちなみに、SARS-CoV-2それ自体は約7.'>
+   BNT162b2 mRNAワクチンの最初の500文字。出典: World Health Organization
+   BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
+   Codex DNA 社のDNAプリンタ BioXp 3200'>
 <meta property='og:url' content='https://msakai.github.io/bnt162b2/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine.ja/'>
 <meta property='og:site_name' content='My New Hugo Site'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://msakai.github.io/bnt162b2/bnt162b2.png'><meta property='article:section' content=''><meta property='article:published_time' content='2020-12-25T20:12:20&#43;01:00'/><meta property='article:modified_time' content='2020-12-25T20:12:20&#43;01:00'/><meta name='twitter:card' content='summary'>
@@ -99,7 +95,12 @@ RNAの一文字は、およそ 0.53·10⁻²¹ グラムの重さで、したが
   
 
   <div class='container entry-content'>
-  <!-- raw HTML omitted -->
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@powerdns_bert">
+<meta name="twitter:creator" content="@powerdns_bert">
+<meta name="twitter:title" content="BioNTechとファイザーのSARS-CoV-2ワクチンのソースコードのリバースエンジニアリング">
+<meta name="twitter:description" content="この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチンのソースコードを一文字づつ見ていきます。">
+<meta name="twitter:image" content="https://berthub.eu/articles/bnt162b2.png">
 <p><strong>Translations</strong>: <a href="https://berthub.eu/articles/posts/greek-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/">ελληνικά</a>
 / <a href="https://mp.weixin.qq.com/s/b0Mw8uKLYuXHJ5Bj3t2Dwg">中文</a>
 / <a href="https://berthub.eu/articles/posts/german-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/">Deutsch</a>
@@ -124,11 +125,27 @@ RNAの一文字は、およそ 0.53·10⁻²¹ グラムの重さで、したが
 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？</p>
 <p>これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。
 (このワクチンは<a href="https://en.wikipedia.org/wiki/Tozinameran">BNT162b2</a> もしくは Tozinameran もしくは <a href="https://twitter.com/PowerDNS_Bert/status/1342109138965422083">Comirnaty</a> としても知られています。)</p>
-<!-- raw HTML omitted -->
+<center>
+<figure>
+    <img src="https://berthub.eu/articles/bnt162b2.png"
+         alt="BNT162b2 mRNAワクチンの最初の500文字。出典: World Health Organization"/> <figcaption>
+            <p>BNT162b2 mRNAワクチンの最初の500文字。出典: <a href="https://mednet-communities.net/inn/db/media/docs/11889.doc">World Health Organization</a></p>
+        </figcaption>
+</figure>
+
+</center>
 <p>BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。
 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。
 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。</p>
-<!-- raw HTML omitted -->
+<center>
+<figure>
+    <img src="https://berthub.eu/articles/bioxp-3200.jpg"
+         alt="Codex DNA 社のDNAプリンタ BioXp 3200"/> <figcaption>
+            <p><a href="https://codexdna.com/products/bioxp-system/">Codex DNA</a> 社のDNAプリンタ BioXp 3200</p>
+        </figcaption>
+</figure>
+
+</center>
 <p>DNAプリンタの出力は少量のDNAで、その後に多くの生物的・化学的な処理を経ることでワクチンのアンプルに収まっているRNAになります（RNAについては後で詳しく説明します）。
 30マイクログラムの用量には実際に30マイクログラムのRNAが含まれています。
 さらに、このmRNAを我々の細胞の中に運ぶためには、脂質による巧妙なパッケージングが用いられています。</p>
@@ -177,7 +194,12 @@ RNAは儚い花なのです。</p>
 <h2 id="ソースコード">ソースコード！</h2>
 <p><a href="https://youtu.be/jp0opnxQ4rY?t=8">ドレミの歌のように</a>、最初から見ていきましょう。
 WHOのドキュメントには便利な図があります:</p>
-<!-- raw HTML omitted -->
+<center>
+<figure>
+    <img src="https://berthub.eu/articles/vaccine-toc.png"/> 
+</figure>
+
+</center>
 <p>これは一種の目次のようなものです。
 小さな帽子のように描かれている「cap」から見ていきましょう。</p>
 <p>計算機上のファイルにいきなりオペコードを書いて実行することが出来ないのと同じように、生物学的オペレーティングシステムにはヘッダーが必要であり、リンカーや呼び出し規約のようなものも存在しています。</p>
@@ -228,7 +250,13 @@ mRNAワクチンは人間の体内で急速に劣化するので、Ψに置き�
 リボソームはタンパク質の3Dプリンターのようなものです。
 それはRNA鎖を取り込み、それに基づいてアミノ酸の鎖を放出し、それはタンパク質に折り畳まれます。
 リボソームはRNA鎖を取り込み、それに基づいてアミノ酸の鎖を作り出し、タンパク質へと折り畳みます。</p>
-<!-- raw HTML omitted -->
+<center>
+<video controls width="90%" loop>
+<source src="https://berthub.eu/articles/protein-short.mp4" type="video/mp4">
+</video>
+<br/>
+出典: [Wikipedia利用者Bensaccount](https://commons.wikimedia.org/wiki/File:Protein_translation.gif)
+</center>
 <p>上図で起こっているのがこの過程です。
 下部にある黒いリボン状のものがRNAであり、緑の部分に現れてくるリボン状のものが形成されるタンパク質です。
 飛んできて飛び去っていくのが、アミノ酸およびRNAにフィットさせるためのアダプターです。</p>
@@ -265,7 +293,15 @@ RNA 3文字はコドンを構成し、すべてのコドンは固有のアミノ
 しかし、アミノ酸はたったの20種類しかありません。
 つまり、複数のコドンが同じアミノ酸を符号化しているのです。</p>
 <p>生命は、RNAコドンをアミノ酸へ写像するために、以下のようなほぼ普遍的な表を用いています：</p>
-<!-- raw HTML omitted -->
+<center>
+<figure>
+    <img src="https://berthub.eu/articles/rna-codon-table.png"
+         alt="RNA・コドン表 (Wikipedia)"/> <figcaption>
+            <p><a href="https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables">RNA・コドン表</a> (Wikipedia)</p>
+        </figcaption>
+</figure>
+
+</center>
 <p>この表から、ワクチンでの変更（UUU → UUC）はすべて<em>同義</em>のコドンへの変更であることを見て取ることができます。
 ワクチンのRNAコードは異なるものではあるものの、結果として得られるアミノ酸とタンパク質は同じものなのです。</p>
 <p>さらに、注意深く見ることで、変更の多くはコドンの３文字目（上の比較で「3」と書かれている箇所で）で起こっていることが分かります。
@@ -303,7 +339,15 @@ KとVで表されるアミノ酸が両方ともプロリン (Proline) を表すP
 <p><strong>この二箇所の変更はワクチンの有効性を非常に高めることが判明しています</strong>。</p>
 <p>一体何が起こっているのでしょうか？
 SARS-CoV-2の実際の粒子を見ると、たくさんのトゲ状になっているスパイクタンパク質が見えます:</p>
-<!-- raw HTML omitted -->
+<center>
+<figure>
+    <img src="https://berthub.eu/articles/sars-em.jpg"
+         alt="SARSウイルスの粒子 (Wikipedia)"/> <figcaption>
+            <p><a href="https://en.wikipedia.org/wiki/Severe_acute_respiratory_syndrome_coronavirus">SARSウイルスの粒子</a> (Wikipedia)</p>
+        </figcaption>
+</figure>
+
+</center>
 <p>これらのスパイクはウイルス本体（「ヌクレオカプシドタンパク質」）に固定されています。
 ここで鍵となるのは、我々のワクチンはスパイクそれ自体を生成するのみで、スパイクをいかなる種類のウイルス本体にも固定しない点です。</p>
 <p>固定されていない独立したスパイクタンパク質は、異なる構造に潰れてしまうことが判明しています。
@@ -339,7 +383,12 @@ SARS-CoV-2の実際の粒子を見ると、たくさんのトゲ状になって�
 <p>分かっていることは、ある種の3&rsquo;非翻訳領域はタンパク質の発現の促進に非常に成功していることです。
 WHOのドキュメントによれば、BioNTechとファイザーのワクチンの3&rsquo;非翻訳領域は、「RNAの安定性と高いタンパク質発現量を実現するために、AES（amino-terminal enhancer of split） mRNA とミトコンドリアの12SリボソームRNA（the mitochondrial encoded 12S ribosomal RNA）から取った」とのこと。
 私に言えることは、「よくやった」ということです。</p>
-<!-- raw HTML omitted -->
+<center>
+<figure>
+    <img src="https://berthub.eu/articles/vaccine.jpg"/> 
+</figure>
+
+</center>
 <h2 id="すべての終わりaaaaaaaaaaaaaaaaaaaaaa">すべての終わりAAAAAAAAAAAAAAAAAAAAAA</h2>
 <p>mRNAの一番最後はポリアデニル化されています。
 ポリアデニル化というのは大量のAAAAAAAAAAAAAAAAAAAの並びで終わっているということの気取った表現です。
@@ -372,8 +421,66 @@ AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAA
 <p>それに加えて、私は「<a href="https://berthub.eu/amazing-dna">プログラマのためのDNA</a>」(DNA for programmers)というページを2001年からメンテナンスしています。</p>
 <p><a href="https://berthub.eu/articles/posts/immune-system/">我々の驚異の免疫系に関するこの紹介</a>も楽しめるかも知れません。</p>
 <p>最後に、<a href="https://berthub.eu/articles">私のブログの記事一覧</a>には、DNA、SARS-CoV-2、COVIDに関する記事がかなりあります。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<!--
+
+Aminoacids
+----------
+Life is built out of or by proteins. Proteins are built out of 20 different
+building blocks called amino acids. These amino acids have different chemical
+and physical properties. Some attract each other, some are rigid, some have
+a positive charge etc.
+
+Once amino acids are chained together we call them a 'protein', and will
+adopt a shape.  This is the famous 'folding'.  The shape and state of a
+protein can depend on temperature, acidity, presence of (UV) light, magnetic
+fields (!!) and many other things.
+
+The famous "Spike" of SARS-CoV-2 is such a protein. 
+
+As noted, DNA is organized in 6-bit codons. Each codon uniquely encodes for
+a single amino acid, using a nearly universal table:
+
+<center>
+<figure>
+    <img src="https://berthub.eu/articles/codon-table.png"
+         alt="The codon table (Wikipedia)"/> <figcaption>
+            <p><a href="https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables">The codon table</a> (Wikipedia)</p>
+        </figcaption>
+</figure>
+
+</center>
+
+From this table, we see that 'CCT' in DNA corresponds to the Proline
+amino acid.
+
+
+Ok but what is REALLY in the vaccine
+------------------------------------
+So, how does this work? DNA is like the 'flash drive' storage of biology.
+DNA is very durable, internally redundant and very reliable. But much like
+computers do not execute code directly from a flash drive, before something
+happens, the code gets copied to a faster, more versatile yet far more
+fragile system.
+
+For computers, this is RAM, for biology it is RNA. The resemblence is
+striking. RAM degrades very quickly unless lovingly tendered. The reason the
+Pfizer/BioNTech mRNA vaccine must be stored in the deepest of deep freezers is the
+same: RNA is a fragile flower.
+
+We'll get to the difference later.
+
+How the vaccine works
+---------------------
+
+
+
+For this reason also, there are no RNA printers. The DNA printer emits tiny
+amounts of DNA, which are then injected into bacteria as little circular
+loops of DNA called plasmids.
+
+
+
+-->
 
 </div>
 
