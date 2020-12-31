@@ -409,18 +409,14 @@ AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAA
 
 さらなる読み物など
 ---------------
-In 2017 I held a two hour presentation on DNA, which you can [view
-here](https://berthub.eu/dna). Like this page it is aimed at computer
-people.
+2020年には私が行ったDNAに関する2時間の講演は[ここで見ることができます](https://berthub.eu/dna)。
+このページと同様に計算機系の人々に向けた講演になっています。
 
-In addition, I've been maintaining a page on '[DNA for
-programmers](https://berthub.eu/amazing-dna)' since 2001.
+それに加えて、私は「[プログラマのためのDNA](https://berthub.eu/amazing-dna)」(DNA for programmers)というページを2001年からメンテナンスしています。
 
-You might also enjoy [this introduction to our amazing immune
-system](https://berthub.eu/articles/posts/immune-system/).
+[我々の驚異の免疫系に関するこの紹介](https://berthub.eu/articles/posts/immune-system/)も楽しめるかも知れません。
 
-Finally, [this listing of my blog posts](https://berthub.eu/articles) has quite some
-DNA, SARS-CoV-2 and COVID related material.
+最後に、[私のブログの記事一覧](https://berthub.eu/articles)には、DNA、SARS-CoV-2、COVIDに関する記事がかなりあります。
 
 <!--
 
