@@ -12,14 +12,13 @@
       <pubDate>Fri, 25 Dec 2020 20:12:20 +0100</pubDate>
       
       <guid>https://msakai.github.io/bnt162b2/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine.ja/</guid>
-      <description>Translations: ελληνικά / 中文 / Deutsch / Español / Français / עִברִית / Hrvatski / Italiano / नेपाली / Polskie / русский / Português. / Markdown for translating
+      <description>他言語版: English (original version) / ελληνικά / 中文 / Deutsch / Español / Français / עִברִית / Hrvatski / Italiano / नेपाली / Polskie / русский / Português. / Markdown for translating
+この記事は bert hubert 氏による記事 Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine の日本語訳です。
 ようこそ!　この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
- この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです (この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
+ この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです
+(この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
  まず、ワクチンのソースコードという表現には違和感を感じるかも知れません。 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？
-これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)
-   BNT162b2 mRNAワクチンの最初の500文字。出典: World Health Organization
-   BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
-   Codex DNA 社のDNAプリンタ BioXp 3200</description>
+これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)</description>
     </item>
     
   </channel>

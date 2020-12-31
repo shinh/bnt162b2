@@ -2,28 +2,26 @@
 <html lang='en' dir='auto'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Translations: ελληνικά / 中文 / Deutsch / Español / Français / עִברִית / Hrvatski / Italiano / नेपाली / Polskie / русский / Português. / Markdown for translating
+<meta name='description' content='他言語版: English (original version) / ελληνικά / 中文 / Deutsch / Español / Français / עִברִית / Hrvatski / Italiano / नेपाली / Polskie / русский / Português. / Markdown for translating
+この記事は bert hubert 氏による記事 Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine の日本語訳です。
 ようこそ!　この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
- この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです (この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
+ この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです
+(この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
  まず、ワクチンのソースコードという表現には違和感を感じるかも知れません。 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？
-これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)
-   BNT162b2 mRNAワクチンの最初の500文字。出典: World Health Organization
-   BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
-   Codex DNA 社のDNAプリンタ BioXp 3200'>
+これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)'>
 <meta name='theme-color' content='#ffcd00'>
 
 <meta property='og:title' content='BioNTechとファイザーのSARS-CoV-2ワクチンのソースコードのリバースエンジニアリング • Articles'>
-<meta property='og:description' content='Translations: ελληνικά / 中文 / Deutsch / Español / Français / עִברִית / Hrvatski / Italiano / नेपाली / Polskie / русский / Português. / Markdown for translating
+<meta property='og:description' content='他言語版: English (original version) / ελληνικά / 中文 / Deutsch / Español / Français / עִברִית / Hrvatski / Italiano / नेपाली / Polskie / русский / Português. / Markdown for translating
+この記事は bert hubert 氏による記事 Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine の日本語訳です。
 ようこそ!　この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
- この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです (この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
+ この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。 すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは @PowerDNS_Bert までご連絡いただければ幸いです
+(この日本語訳については masahiro.sakai@gmail.com もしくは @masahiro_sakai まで)
  まず、ワクチンのソースコードという表現には違和感を感じるかも知れません。 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？
-これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)
-   BNT162b2 mRNAワクチンの最初の500文字。出典: World Health Organization
-   BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。 ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
-   Codex DNA 社のDNAプリンタ BioXp 3200'>
+これはとても良い質問で、まずはBioNTechとファイザーのワクチンのソースコードの一部を見ていきましょう。 (このワクチンはBNT162b2 もしくは Tozinameran もしくは Comirnaty としても知られています。)'>
 <meta property='og:url' content='https://msakai.github.io/bnt162b2/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine.ja/'>
 <meta property='og:site_name' content='Articles'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://berthub.eu/articles/bnt162b2.png'><meta property='article:section' content=''><meta property='article:published_time' content='2020-12-25T20:12:20&#43;01:00'/><meta property='article:modified_time' content='2020-12-25T20:12:20&#43;01:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://msakai.github.io/bnt162b2/bnt162b2.png'><meta property='article:section' content=''><meta property='article:published_time' content='2020-12-25T20:12:20&#43;01:00'/><meta property='article:modified_time' content='2020-12-25T20:12:20&#43;01:00'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.79.1" />
 
@@ -101,7 +99,8 @@
 <meta name="twitter:title" content="BioNTechとファイザーのSARS-CoV-2ワクチンのソースコードのリバースエンジニアリング">
 <meta name="twitter:description" content="この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチンのソースコードを一文字づつ見ていきます。">
 <meta name="twitter:image" content="https://berthub.eu/articles/bnt162b2.png">
-<p><strong>Translations</strong>: <a href="https://berthub.eu/articles/posts/greek-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/">ελληνικά</a>
+<p><strong>他言語版</strong>: <a href="https://berthub.eu/articles/posts/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/">English (original version)</a>
+/ <a href="https://berthub.eu/articles/posts/greek-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/">ελληνικά</a>
 / <a href="https://mp.weixin.qq.com/s/b0Mw8uKLYuXHJ5Bj3t2Dwg">中文</a>
 / <a href="https://berthub.eu/articles/posts/german-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/">Deutsch</a>
 / <a href="https://docs.google.com/document/d/1FxswEeem2kP1AUF979P7INBlkD1OzMzVHPEKeU9R2kw/edit">Español</a>
@@ -114,12 +113,13 @@
 / <a href="https://localcrew.ru/reversepfizer">русский</a>
 / <a href="https://docs.google.com/document/d/1pDo40DXcpXjzqAUfhFfup50-IQ2Qct-mhLnmRpjFZWM/edit">Português</a>.
 / <a href="https://raw.githubusercontent.com/berthubert/bnt162b2/master/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine.md">Markdown for translating</a></p>
+<p><em>この記事は bert hubert 氏による記事 <a href="https://berthub.eu/articles/posts/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/">Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine</a> の日本語訳です。</em></p>
 <p>ようこそ!　この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。</p>
 <blockquote>
 <p><em>この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。
 すべての誤りの責任は自分にありますが、もし誤りがあれば <a href="mailto:bert@hubertnet.nl">bert@hubertnet.nl</a> もしくは
-<a href="https://twitter.com/PowerDNS_Bert">@PowerDNS_Bert</a> までご連絡いただければ幸いです</em>
-(この日本語訳については <a href="mailto:masahiro.sakai@gmail.com">masahiro.sakai@gmail.com</a> もしくは <a href="https://twitter.com/masahiro_sakai">@masahiro_sakai</a> まで)</p>
+<a href="https://twitter.com/PowerDNS_Bert">@PowerDNS_Bert</a> までご連絡いただければ幸いです</em></p>
+<p>(この日本語訳については <a href="mailto:masahiro.sakai@gmail.com">masahiro.sakai@gmail.com</a> もしくは <a href="https://twitter.com/masahiro_sakai">@masahiro_sakai</a> まで)</p>
 </blockquote>
 <p>まず、ワクチンのソースコードという表現には違和感を感じるかも知れません。
 ワクチンは腕に注射する液体なのに、そのソースコードとはどういうことなのでしょうか？</p>
@@ -136,7 +136,7 @@
 </center>
 <p>BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。
 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。
-ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。</p>
+ワクチン製造過程の一番最初は、このコードをDNAプリンター（！）にアップロードし、このバイト列を実際のDNAの分子に変換することです。</p>
 <center>
 <figure>
     <img src="https://berthub.eu/articles/bioxp-3200.jpg"
