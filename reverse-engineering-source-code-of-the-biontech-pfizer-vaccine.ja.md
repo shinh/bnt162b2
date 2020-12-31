@@ -12,7 +12,8 @@ images:
 <meta name="twitter:description" content="この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチンのソースコードを一文字づつ見ていきます。">
 <meta name="twitter:image" content="https://berthub.eu/articles/bnt162b2.png">
 
-**Translations**: [ελληνικά](https://berthub.eu/articles/posts/greek-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/)
+**他言語版**: [English (original version)](https://berthub.eu/articles/posts/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/)
+/ [ελληνικά](https://berthub.eu/articles/posts/greek-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/)
 / [中文](https://mp.weixin.qq.com/s/b0Mw8uKLYuXHJ5Bj3t2Dwg)
 / [Deutsch](https://berthub.eu/articles/posts/german-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/)
 / [Español](https://docs.google.com/document/d/1FxswEeem2kP1AUF979P7INBlkD1OzMzVHPEKeU9R2kw/edit)
@@ -31,6 +32,7 @@ images:
 > *この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。
 > すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは
 > [@PowerDNS_Bert](https://twitter.com/PowerDNS_Bert) までご連絡いただければ幸いです*
+>
 > (この日本語訳については masahiro.sakai@gmail.com もしくは [@masahiro_sakai](https://twitter.com/masahiro_sakai) まで)
 
 まず、ワクチンのソースコードという表現には違和感を感じるかも知れません。
@@ -45,7 +47,7 @@ images:
 
 BNT162b mRNAワクチンの中核となるのは、このデジタルなコードです。
 これは4284文字で、したがって一連のツイートに収まるほどの長さしかありません。
-ワクチン製造過程の一番最初は、このコードをDNAプリンター(!)にアップロードし、このバイト列を実際のDNAの分子に変換することです。
+ワクチン製造過程の一番最初は、このコードをDNAプリンター（！）にアップロードし、このバイト列を実際のDNAの分子に変換することです。
 
 <center>
 {{< figure src="https://berthub.eu/articles/bioxp-3200.jpg" caption="[Codex DNA](https://codexdna.com/products/bioxp-system/) 社のDNAプリンタ BioXp 3200" >}}
