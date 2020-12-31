@@ -1,5 +1,5 @@
 ---
-title: "Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine"
+title: "BioNTechとファイザーのSARS-CoV-2ワクチンのソースコードのリバースエンジニアリング"
 date: 2020-12-25T20:12:20+01:00
 draft: false
 images:
@@ -8,8 +8,8 @@ images:
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@powerdns_bert">
 <meta name="twitter:creator" content="@powerdns_bert">
-<meta name="twitter:title" content="Reverse Engineering the source code of the BioNTech/Pfizer SARS-CoV-2 Vaccine">
-<meta name="twitter:description" content="Welcome! In this post, we'll be taking a character-by-character look at the source code of the BioNTech/Pfizer SARS-CoV-2 mRNA vaccine.">
+<meta name="twitter:title" content="BioNTechとファイザーのSARS-CoV-2ワクチンのソースコードのリバースエンジニアリング">
+<meta name="twitter:description" content="この記事ではBioNTechとファイザーのSARS-CoV-2向けmRNAワクチンのソースコードを一文字づつ見ていきます。">
 <meta name="twitter:image" content="https://berthub.eu/articles/bnt162b2.png">
 
 **Translations**: [ελληνικά](https://berthub.eu/articles/posts/greek-reverse-engineering-source-code-of-the-biontech-pfizer-vaccine/)
@@ -26,7 +26,7 @@ images:
 / [Português](https://docs.google.com/document/d/1pDo40DXcpXjzqAUfhFfup50-IQ2Qct-mhLnmRpjFZWM/edit).
 / [Markdown for translating](https://raw.githubusercontent.com/berthubert/bnt162b2/master/reverse-engineering-source-code-of-the-biontech-pfizer-vaccine.md)
 
-ようこそ!  この記事ではBioNTechとファイザー(Pfizer)のSARS-CoV-2(訳注: いわゆるCOCID-19)向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
+ようこそ!  この記事ではBioNTechとファイザー(Pfizer)のSARS-CoV-2向けmRNAワクチン(メッセンジャーRNAワクチン)のソースコードを一文字づつ見ていきます。
 
 > *この記事の読みやすさと正確さの確認のために時間を割いてもらった多くの人々に感謝します。
 > すべての誤りの責任は自分にありますが、もし誤りがあれば bert@hubertnet.nl もしくは
