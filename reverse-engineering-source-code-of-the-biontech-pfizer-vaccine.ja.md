@@ -395,22 +395,17 @@ AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAA
 
 まとめ
 -----
-With this, we now know the exact mRNA contents of the BNT162b2 vaccine, and
-for most parts we understand why they are there: 
+これで、BNT162b2ワクチンのmRNAの内容をすべて知ったことになり、そのほとんどの部分についてはそれが何故そこにあるのかがw借りました:
 
- * The CAP to make sure the RNA looks like regular mRNA
- * A known successful and optimized 5' untranslated region (UTR)
- * A codon optimized signal peptide to send the Spike protein to the right
- place (copied 100% from the original virus)
- * A codon optimized version of the original spike, with two 'Proline'
- substitutions to make sure the protein appears in the right form
- * A known successful and optimized 3' untranslated region
- * A slightly mysterious poly-A tail with an unexplained 'linker' in there
+ * RNAが通常のmRNAに見えるようにするためにあるCAP、
+ * 既知の成功した5'非翻訳領域に基づいてさらに最適化された5'非翻訳領域、
+ * スパイクタンパク質を正しい場所に運ぶための、（ウイルスのシグナルペプチドを100%コピーして）コドン最適化を行ったシグナルペプチド、
+ * もとのスパイクをコドン最適化し、タンパク質が正しい形になることを保証するために２つのプロリン置換を行ったスパイクタンパク質、
+ * 既知の成功した3'非翻訳領域に基づいて更に最適化された3'非翻訳領域、
+ * 解説のない「リンカー」を含む、若干若干ミステリアスな多数のAによる末尾。
 
-The codon optimization adds a lot of G and C to the mRNA. Meanwhile, using Ψ
-(1-methyl-3'-pseudouridylyl) instead of U helps evade our immune system, so
-the mRNA stays around long enough so we can actually help train the immune
-system.
+コドン最適化はmRNAのGとCを大量に増やします。
+一方、Uの代わりにψ（1-メチル-3'-プソイドウリジリル）を用いることで、免疫系を回避してワクチンのmRNAを十分長く存在させ、免疫系を訓練することを（実際には）助けることができます。
 
 さらなる読み物など
 ---------------
