@@ -369,22 +369,19 @@ WHOのドキュメントによれば、BioNTechとファイザーのワクチン
 </center>
 
 
-The AAAAAAAAAAAAAAAAAAAAAA end of it all
-----------------------------------------
-The very end of mRNA is polyadenylated. This is a fancy way of saying it
-ends on a lot of AAAAAAAAAAAAAAAAAAA. Even mRNA has had enough of 2020 it
-appears.
+すべての終わりAAAAAAAAAAAAAAAAAAAAAA
+----------------------------------
+mRNAの一番最後はポリアデニル化されています。
+ポリアデニル化というのは大量のAAAAAAAAAAAAAAAAAAAの並びで終わっているということをいう気取った表現です。
+mRNAですら2020年にはもう飽き飽きしてきているようです。
 
-mRNA can be reused many times, but as this happens, it also loses some of
-the A's at the end. Once the A's run out, the mRNA is no longer functional
-and gets discarded. In this way, the 'poly-A' tail is protection from
-degradation.
+mRNAは何度も再利用することができますが、そのたびに末尾のAのうちのいくらかを失います。
+Aを使い果たすと、そのmRNAは機能しなくなり破棄されます。
+したがって、多量のAを持つ末尾は、劣化して破棄されることを防いでいます。
 
-Studies have been done to find out what the optimal number of A's at the end
-is for mRNA vaccines. I read in the open literature that this peaked at 120
-or so. 
+mRNAワクチンにとっての最適な末尾のAの数を見つけるための研究がされており、120かそこらがピークになっているという公開の文献を読んだとことがあります。
 
-The BNT162b2 vaccine ends with:
+BNT162b2ワクチンの末尾は以下のようになっています:
 
 ```
                                      ****** ****
@@ -392,11 +389,9 @@ UAGCAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAGCAUAU GACUAAAAAA AAAAAAAAAA
 AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAAAAAAAA AAAA
 ```
 
-This is 30 A's, then a "10 nucleotide linker" (GCAUAUGACU), followed by another 70
-A's.
+30個のAに続いて、「10文字のヌクレオチドのリンカー」（10 nucleotide linker; GCAUAUGACU)　があり、更に70個のAが続いています。
 
-I suspect that what we see here is the result of further proprietary
-optimization to enhance protein expression even more.
+これはタンパク質の発現を更に促進するために、プロプライエタリな最適化手法を適用した結果ではないかと推測しています。
 
 まとめ
 -----
